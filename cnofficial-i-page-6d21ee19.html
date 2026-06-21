@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 日常查询与场景对照</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #f9f6f0;
+            color: #2e2b26;
+            line-height: 1.7;
+            font-size: 16px;
+            padding: 0 1rem 3rem;
+        }
+
+        .page-wrap {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fffcf8;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+            border-radius: 18px;
+            padding: 0 2rem 2.5rem;
+        }
+
+        /* 顶部导航 */
+        .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.4rem 0 0.6rem;
+            border-bottom: 1px solid #e8e0d6;
+        }
+
+        .site-nav .logo {
+            font-weight: 500;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            color: #3a322c;
+        }
+
+        .site-nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .site-nav .nav-links a {
+            color: #5f554b;
+            text-decoration: none;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .site-nav .nav-links a:hover {
+            border-bottom-color: #b0a088;
+            color: #1f1b17;
+        }
+
+        /* 主体标题层级 */
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin: 2rem 0 0.4rem;
+            color: #1f1b17;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            margin: 2.2rem 0 1rem;
+            padding-left: 0.6rem;
+            border-left: 4px solid #c9b99f;
+            color: #2e2b26;
+        }
+
+        p {
+            margin: 0.8rem 0;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: #3d3731;
+            max-width: 85%;
+            margin-bottom: 1.2rem;
+        }
+
+        /* 引用 / 提示框 */
+        .callout {
+            background: #f2ede5;
+            border-left: 6px solid #b5a48a;
+            padding: 1rem 1.6rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.8rem 0;
+            font-size: 0.98rem;
+            color: #3d352e;
+        }
+
+        .callout strong {
+            font-weight: 500;
+            color: #2e251e;
+        }
+
+        .note-box {
+            background: #f7f2ea;
+            border-radius: 14px;
+            padding: 1rem 1.6rem;
+            margin: 1.5rem 0;
+            border: 1px solid #e3dacd;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .note-box p {
+            margin: 0.2rem 0;
+        }
+
+        /* 三个场景卡片 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.8rem 0 2.5rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border: 1px solid #e7ded2;
+            border-radius: 16px;
+            padding: 1.4rem 1.2rem;
+            transition: 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .scene-card:hover {
+            border-color: #b8aa95;
+            box-shadow: 0 4px 12px rgba(80, 60, 40, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .scene-card h3 {
+            font-size: 1.15rem;
+            font-weight: 470;
+            margin-bottom: 0.6rem;
+            color: #2b251f;
+            letter-spacing: 0.2px;
+        }
+
+        .scene-card p {
+            font-size: 0.93rem;
+            color: #4b4239;
+            margin: 0.4rem 0;
+        }
+
+        .scene-card .tag {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+            color: #8b7b67;
+            background: #f1ebe2;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        /* 常见说明（faq摘要风格） */
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #ddd5c9;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 470;
+            color: #2f2a24;
+        }
+
+        .faq-a {
+            margin-top: 0.2rem;
+            color: #4e453c;
+            font-size: 0.95rem;
+        }
+
+        /* 链接样式 */
+        a {
+            color: #706045;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cfc0ab;
+            transition: 0.15s;
+        }
+
+        a:hover {
+            color: #3a2f23;
+            text-decoration-color: #7f6b53;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .page-wrap {
+                padding: 0 1.2rem 2rem;
+            }
+            .site-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+            .site-nav .nav-links {
+                gap: 1.4rem;
+                flex-wrap: wrap;
+            }
+            h1 { font-size: 1.7rem; }
+            .intro-text { max-width: 100%; }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0 0.5rem 2rem; }
+            .site-nav .nav-links { gap: 0.9rem; font-size: 0.88rem; }
+            .callout { padding: 0.8rem 1rem; }
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e2d9cd;
+            font-size: 0.88rem;
+            color: #746b60;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="site-nav">
+        <span class="logo">爱游戏</span>
+        <div class="nav-links">
+            <a href="#intro">介绍</a>
+            <a href="#scene">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <!-- 主标题 -->
+    <h1>日常对照与延伸阅读</h1>
+    <p class="intro-text">
+        信息太多的时候，反而不知道从哪开始。这个页面整理了常被问到的几个方面，方便直接对照参考。
+        你不必每次都从头翻找，把这里当成一个安静的备忘就好。
+    </p>
+
+    <!-- 核心介绍段落 + 自然嵌入链接 -->
+    <p>
+        关于平台的日常使用，很多细节其实并不复杂。比如查询某个功能入口、对照不同分类下的内容，甚至只是随手翻阅一下更新说明——这些事在 
+        <a href="https://cnofficial-i-game.com.cn">爱游戏</a> 上就能完成。页面结构偏简洁，层级也不深，习惯之后会觉得挺顺手。
+    </p>
+    <p>
+        我自己用下来的感觉是，有些信息单独看很零碎，但放在一起对照着读，反而更容易理解。所以下面三个场景，也是我平时反复用到的视角。
+    </p>
+
+    <!-- 引用块（提示） -->
+    <div class="callout">
+        <strong>一点提示</strong>：以下场景都是基于日常查询习惯整理的，不代表官方分类，也不涉及推荐或评价。你可以当成一种个人笔记式的索引来用。
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 id="scene">三个常见场景</h2>
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>对照翻阅</h3>
+            <p>把几个相关页面并排打开，对比条目、说明和更新时间。尤其适合查找不同模块之间的细微差异。</p>
+            <span class="tag">并列视角</span>
+        </div>
+        <div class="scene-card">
+            <h3>延伸检索</h3>
+            <p>从一条记录出发，顺藤摸瓜看它关联的其他内容。适合想了解某个功能背后的上下文时使用。</p>
+            <span class="tag">关联线索</span>
+        </div>
+        <div class="scene-card">
+            <h3>快速定位</h3>
+            <p>根据关键词或记忆碎片，直接跳到目标段落。省去逐页翻找的时间，适合已有大致方向的情况。</p>
+            <span class="tag">精准跳转</span>
+        </div>
+    </div>
+
+    <!-- 常见说明（FAQ 摘要风格） -->
+    <h2 id="faq">常见说明</h2>
+
+    <div class="faq-item">
+        <div class="faq-q">◆ 页面信息会更新吗？</div>
+        <div class="faq-a">会。内容结构会不定期调整，但核心入口和分类逻辑一般不变。建议以 <a href="https://cnofficial-i-game.com.cn">爱游戏</a> 实际显示为准。</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">◆ 有没有收藏或记录功能？</div>
+        <div class="faq-a">平台本身不提供个人收藏夹，但你可以用浏览器书签或笔记工具自行整理。我个人习惯把常用页面的链接放在一个文档里。</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">◆ 遇到显示异常怎么办？</div>
+        <div class="faq-a">先确认网络和浏览器版本，也可以清理缓存后再试。如果问题持续，可以换个时段再访问，有时候是临时状况。</div>
+    </div>
+
+    <!-- 额外一个提示框（non-intrusive） -->
+    <div class="note-box">
+        <p><strong>关于延伸阅读</strong>：如果你对某个模块的背景感兴趣，可以留意页面底部的更新日期和备注区域，那里偶尔会附带简短的说明。这些信息虽然不起眼，但往往能解释一些设计上的考虑。</p>
+    </div>
+
+    <!-- 结尾 -->
+    <footer>
+        <p>这个页面只是个人整理，与官方无关。内容仅供对照参考，不构成任何指引或承诺。</p>
+        <p style="margin-top: 0.3rem;">日常使用中如果发现出入，还请以实际页面为准。</p>
+    </footer>
+</div>
+</body>
+</html>
