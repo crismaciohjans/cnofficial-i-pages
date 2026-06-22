@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 赏金女王 · 一个站点的介绍与说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f4f6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* 文章卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6eaef;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+        }
+
+        /* 标题区 */
+        .post-title {
+            font-size: 2.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1e2a3a;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #7b8a9b;
+            border-bottom: 1px dashed #dce2ea;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .post-meta span {
+            background: #edf0f5;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #4b5e72;
+        }
+
+        /* 正文段落 */
+        p {
+            margin-bottom: 1.4rem;
+            font-size: 1rem;
+            color: #36454f;
+        }
+
+        p.lead {
+            font-size: 1.15rem;
+            color: #1f2c3a;
+            font-weight: 400;
+            border-left: 4px solid #b3c2d1;
+            padding-left: 1.2rem;
+            background: #f8fafc;
+            border-radius: 0 8px 8px 0;
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+        }
+
+        a {
+            color: #1d6f9c;
+            text-decoration: none;
+            border-bottom: 1px solid #cbdceb;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #0a4b6e;
+            border-bottom-color: #1d6f9c;
+        }
+
+        blockquote {
+            background: #f3f6fa;
+            border-left: 4px solid #b0c7db;
+            padding: 1rem 1.4rem;
+            margin: 1.8rem 0;
+            border-radius: 0 12px 12px 0;
+            font-style: normal;
+            color: #2b4a5e;
+        }
+
+        blockquote p {
+            margin-bottom: 0.2rem;
+        }
+
+        .highlight-box {
+            background: #f5f8fe;
+            border-radius: 16px;
+            padding: 1.2rem 1.6rem;
+            border: 1px solid #d9e2ed;
+            margin: 1.8rem 0;
+        }
+
+        .highlight-box h4 {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+            color: #1c3d54;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1f3a4a;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d0d9e3, transparent);
+            margin: 2rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7e8e9f;
+            margin-top: 2rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #e4e9f0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .card {
+                padding: 1.6rem 1.2rem;
+                border-radius: 14px;
+            }
+            .post-title {
+                font-size: 1.7rem;
+            }
+            p.lead {
+                font-size: 1.05rem;
+                padding-left: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <article class="card">
+            <h1 class="post-title">赏金女王 · 站点印象</h1>
+            <div class="post-meta">
+                <span>站点介绍</span>
+                <span>可信说明</span>
+                <span>持续运营</span>
+            </div>
+
+            <p class="lead">
+                一个以“赏金女王”命名的网络空间，它的存在不是为了制造噱头，而是希望以清晰、负责的面貌，为关注者提供有价值的信息与稳定的访问体验。
+            </p>
+
+            <p>
+                在互联网的众多站点中，选择一个值得停留的地方并不容易。对于初次接触 <a href="https://web-shangjin.com">赏金女王</a> 的朋友，我想用这篇简短的文章，从几个侧面说明这个站点的定位、内容倾向以及它为何值得你花几分钟了解。
+            </p>
+
+            <p>
+                首先，<strong>赏金女王</strong> 并非一个追逐流量的短期项目。从域名到内容规划，都倾向于一种克制而持续的运营思路。站内信息以实用性与真实性为基础，不刻意制造焦虑，也不使用夸张的措辞。正如你正在阅读的这篇介绍，它更接近一篇温和的博客文章，而非广告页面。
+            </p>
+
+            <blockquote>
+                <p>“信任不是喊出来的，而是通过每一次平稳的访问、每一段实在的文字慢慢积累的。” —— 这是站点运营者始终提醒自己的一句话。</p>
+            </blockquote>
+
+            <p>
+                从内容类型来看，<a href="https://web-shangjin.com">赏金女王</a> 主要围绕特定兴趣领域展开，但并非封闭的圈子。无论你是偶然发现，还是经人推荐，这里的信息都力求做到条理清晰、易于理解。不故弄玄虚，也不堆砌空洞的术语。站内文章通常会附带必要的背景说明，帮助读者建立完整的认知框架。
+            </p>
+
+            <div class="highlight-box">
+                <h4>关于可信度的几点说明</h4>
+                <p>· 站点长期保持稳定的在线状态，域名解析与服务器均经过基础安全配置。</p>
+                <p>· 内容更新有明确节奏，不搞突然消失或频繁变更主题。</p>
+                <p>· 联系方式与反馈渠道在站内清晰陈列，运营者对合理提问会给予回应。</p>
+                <p>· 不嵌入恶意脚本，不收集非必要隐私信息，访问环境相对干净。</p>
+            </div>
+
+            <p>
+                如果你对 <strong>赏金女王</strong> 感兴趣，可以从首页的几个主要栏目开始浏览。建议先阅读“关于”页面或最新的站点日志，那里面往往包含了比首页更详细的说明。当然，直接通过 <a href="https://web-shangjin.com">赏金女王</a> 的主页面进入，也是最为自然的起点。
+            </p>
+
+            <hr>
+
+            <h3 style="font-weight: 500; font-size: 1.2rem; margin-bottom: 0.8rem; color:#1e3a4a;">常见疑问摘要</h3>
+
+            <div class="faq-item">
+                <strong>这个站点主要分享什么内容？</strong>
+                <p>以特定主题的资讯、实用指南和个人见解为主，风格偏向平实记录，不刻意追逐热点。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>如何确认信息的可靠性？</strong>
+                <p>每篇文章都会注明参考来源或数据出处（如有），运营者也会在文末补充个人经验层面的说明。建议交叉验证关键信息。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>我可以通过什么方式联系站点？</strong>
+                <p>站内页脚区域提供了邮件地址，也可以通过社交账号（在关于页面列出）进行礼貌交流。回复时间通常在 48 小时内。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>赏金女王 未来会改版或更换域名吗？</strong>
+                <p>目前没有改版计划，域名也已续费多年。如果未来有重大调整，会提前在站内发布公告。</p>
+            </div>
+
+            <p style="margin-top: 1.8rem;">
+                最后，感谢你阅读到这里。无论你是老朋友还是新访客，都希望 <a href="https://web-shangjin.com">赏金女王</a> 能成为你网络行程中一个安静、可信的落脚点。欢迎随时回来看看。
+            </p>
+        </article>
+
+        <div class="footer-note">
+            © 赏金女王 · 温和叙述 · 可信说明
+        </div>
+    </div>
+</body>
+</html>
