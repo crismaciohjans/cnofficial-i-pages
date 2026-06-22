@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赏金女王 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fce0c0 0%, #f7d5b0 40%, #f0c7a0 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #3e2e24;
+        }
+
+        .page-wrapper {
+            max-width: 960px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* 主视觉卡片 — 暖色渐变 + 柔和光晕 */
+        .hero-card {
+            background: #fffcf7;
+            border-radius: 40px 40px 28px 28px;
+            box-shadow: 0 12px 30px rgba(140, 80, 40, 0.18), 0 4px 10px rgba(80, 45, 25, 0.08);
+            padding: 2.8rem 2.4rem 2.4rem;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -90px;
+            right: -90px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, #fad9b6 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .hero-card::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #f3ccaa 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #5a3f2d;
+            margin-bottom: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #8a6e58;
+            background: #f5ede6;
+            display: inline-block;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            max-width: 680px;
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 249, 242, 0.6);
+            backdrop-filter: blur(2px);
+            padding: 0.8rem 1.2rem;
+            border-radius: 24px;
+            border-left: 4px solid #dbb594;
+        }
+
+        /* 通用卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem;
+        }
+
+        .info-card {
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 8px 20px rgba(120, 70, 40, 0.10);
+            transition: transform 0.2s ease, box-shadow 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(100, 60, 30, 0.14);
+        }
+
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #5a3f2d;
+        }
+
+        .card-head span {
+            background: #eddccb;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #5a3f2d;
+        }
+
+        .info-card p, .info-card ul {
+            font-size: 0.98rem;
+            color: #4f392c;
+            flex: 1;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            padding: 0.4rem 0 0.4rem 1.5rem;
+            position: relative;
+        }
+
+        .info-card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #b58c72;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .tag {
+            background: #f2e4d9;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #5c4132;
+            font-weight: 500;
+        }
+
+        .link-card {
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 1.8rem 2.2rem;
+            box-shadow: 0 8px 20px rgba(120, 70, 40, 0.10);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .link-card p {
+            font-size: 1.05rem;
+            color: #4f392a;
+        }
+
+        .link-card a {
+            display: inline-block;
+            background: #e6cbb5;
+            color: #3e2a1f;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.3rem 1.4rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 2px 6px rgba(150, 90, 50, 0.10);
+            white-space: nowrap;
+        }
+
+        .link-card a:hover {
+            background: #dbb594;
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(130, 75, 40, 0.15);
+        }
+
+        .faq-mini {
+            background: #fffcf7;
+            border-radius: 28px;
+            padding: 1.8rem 2.2rem;
+            box-shadow: 0 8px 20px rgba(120, 70, 40, 0.10);
+        }
+
+        .faq-mini h3 {
+            font-weight: 600;
+            color: #5a3f2d;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.7rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px dashed #e5cfbe;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #5f4433;
+        }
+
+        .faq-a {
+            color: #6f5544;
+            margin-top: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #7a604d;
+            font-size: 0.9rem;
+            padding: 0.6rem 0 0.8rem;
+            border-top: 1px solid rgba(180, 140, 110, 0.2);
+            margin-top: 0.2rem;
+        }
+
+        @media (max-width: 640px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .link-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .link-card a {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 主视觉卡片 -->
+    <div class="hero-card">
+        <div class="hero-title">🎴 赏金女王</div>
+        <div class="hero-sub">简明指南 · 日常访问提醒</div>
+        <div class="hero-desc">
+            「赏金女王」是一个以休闲娱乐为导向的线上空间，适合在碎片时间里放松心情、体验轻量互动。
+            本篇从实用角度出发，帮你快速了解它的用途、适合哪些人，以及访问时需要注意的小细节。
+        </div>
+    </div>
+
+    <!-- 两张用途卡片 + 适合人群 -->
+    <div class="card-grid">
+        <div class="info-card">
+            <div class="card-head"><span>🎯</span> 主要用途</div>
+            <p>赏金女王提供了多种轻量级主题内容与互动机制，你可以把它看作一个融合了趣味反馈与视觉放松的线上小站。整体氛围偏向温和、不激烈。</p>
+            <div class="tag-group">
+                <span class="tag">休闲放松</span>
+                <span class="tag">主题探索</span>
+                <span class="tag">轻反馈</span>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="card-head"><span>👥</span> 适合人群</div>
+            <ul>
+                <li>习惯在通勤或休息时浏览轻松内容的用户</li>
+                <li>喜欢简洁、无干扰体验的访客</li>
+                <li>对线上互动保持好奇，但不追求复杂操作的人</li>
+            </ul>
+            <div style="margin-top: 0.8rem; font-size: 0.93rem; background: #f7ede5; padding: 0.3rem 1rem; border-radius: 40px; align-self: flex-start;">
+                也欢迎偶尔路过的新朋友
+            </div>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 -->
+    <div class="link-card">
+        <p>
+            💡 如果你想亲自体验这份轻松，可以直接前往
+            <a href="https://cn-shangjin.com">赏金女王</a>。
+            页面加载后，不妨从首页的提示开始，慢慢熟悉它的节奏。
+        </p>
+        <p style="font-size: 0.95rem; color: #7a5f4b; width: 100%; margin-top: 0.2rem;">
+            ⏳ 建议在稳定的网络环境下打开，首次加载可能需要几秒钟。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要卡片 -->
+    <div class="faq-mini">
+        <h3><span>❓</span> 常见疑问 · 摘要</h3>
+        <div class="faq-item">
+            <div class="faq-q">▪ 赏金女王需要注册吗？</div>
+            <div class="faq-a">目前大部分内容可以直接浏览，部分互动可能基于访客身份，但不需要强制注册。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▪ 移动端体验如何？</div>
+            <div class="faq-a">页面适配了手机与平板，竖屏横屏都可正常浏览，卡片布局会自动调整。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▪ 内容更新频率？</div>
+            <div class="faq-a">不定期进行主题或视觉微调，没有固定日程，每次访问可能发现小变化。</div>
+        </div>
+    </div>
+
+    <!-- 底部提示 -->
+    <div class="footer-note">
+        🌱 温和探索，愉快停留 · 任何疑问以页面实际展示为准
+    </div>
+</div>
+</body>
+</html>
